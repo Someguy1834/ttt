@@ -24,11 +24,14 @@ def print_board():
     while i < 10:
         s = ""
         branch = board[i - 1]
-        if (branch == 0): s = 'X'
-        elif (branch == 1): s = 'O'
-        elif (branch == 2): s = '|'
+        if branch == 0:
+            s = 'X'
+        elif branch == 1:
+            s = 'O'
+        else:
+            s = '|'
         print(s, end=" ")
-        if ((i % 3) == 0):
+        if i % 3 == 0:
             print("\n", end="")
         i += 1
 #
@@ -52,15 +55,15 @@ def play():
         play()
         return
 
-    if (num > 9):
+    if num > 9:
         print("ERROR: NUMBER NOT BETWEEN 1-9")
         play()
         return
-    elif (num < 1):
+    elif num < 1:
         print("ERROR: NUMBER NOT BETWEEN 1-9")
         play()
         return
-    if (board[num - 1] != 2):
+    if board[num - 1] != 2:
         print("ERROR SPACE TAKEN")
         play()
         return
@@ -73,15 +76,18 @@ def play():
         b = board[winningConditions[i][1]]
         c = board[winningConditions[i][2]]
         i += 1
-        if (a == b & a == c & c == b):
-            if (a == 2): continue
+        if a == b & a == c & c == b:
+            if a == 2:
+                continue
             win = True
             break
         
-    if (win == True):
+    if win == True:
         winner = ""
-        if (player_turn == 0): winner = "X"
-        else: winner = "O"
+        if player_turn == 0:
+            winner = "X"
+        else: 
+            winner = "O"
         os.system("clear")
         print_board()
         print("The winner is " + winner + "!")
@@ -96,7 +102,7 @@ def play():
 
 def switch_turns():
     global player_turn
-    if (player_turn == 1):
+    if player_turn == 1:
         player_turn = 0
         print("It is X's turn.")
     else: 
