@@ -74,7 +74,7 @@ void play() {
     bool wins = false;
     int winnerN;
 
-    for (int i = 0; i < 7; i++) {
+    for (int i = 0; i < 8; i++) {
         int a = board[winningConditions[i][0]];
         int b = board[winningConditions[i][1]];
         int c = board[winningConditions[i][2]];
